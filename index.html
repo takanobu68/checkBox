@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .btn {
+        padding: 3px 20px;
+        margin: 10px;
+        font-size: 14px;
+        display: block;
+      }
+      .sBtn {
+        padding: 3px 20px;
+        margin: 10px;
+        font-size: 14px;
+        display: block;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+  </head>
+  <body>
+    <input type="checkbox" id="cBox" />同意チェックボックス
+    <input type="submit" value="送信" class="sBtn" disabled />
+    <!-- <button class="btn" disabled>送信</button> -->
+
+    <script>
+      // JavaScriptならこっち
+
+      const cBox = document.getElementById('cBox');
+      // const btn = document.querySelector('.btn');
+      const sBtn = document.querySelector('.sBtn');
+
+      cBox.addEventListener('change', (e) => {
+        let isChecked = e.target.checked;
+        // isChecked ? (btn.disabled = false) : (btn.disabled = true);
+        isChecked ? (sBtn.disabled = false) : (sBtn.disabled = true);
+      });
+
+      // jQuery使うならこっち
+      /*
+      $(function () {
+        $('#cBox').change(function () {
+          let isChecked = $(this).prop('checked');
+          isChecked
+            ? $('.btn').prop('disabled', false)
+            : $('.btn').prop('disabled', true);
+        });
+      });
+			*/
+    </script>
+  </body>
+</html>
